@@ -18,7 +18,7 @@ sourceSets.main.java.srcDirs = ['src/']
 sourceSets.main.resources.srcDirs += ['assets/']
 
 dependencies {
-    implementation project(':gdx-vfx:core')
+    implementation project(':gdx-vfx-core')
     runtimeOnly files('assets')
 }
 
@@ -28,3 +28,10 @@ jar {
     }
     duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
+// Standalone configuration when included from a parent project
+if (!project.plugins.hasPlugin('java-library')) {
+    apply plugin: 'java-library'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+repositories { mavenCentral() }

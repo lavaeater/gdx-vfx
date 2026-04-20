@@ -19,3 +19,13 @@ sourceSets.main.java.srcDirs = [ 'src' ]
 dependencies {
     api "com.badlogicgames.gdx:gdx:$gdxVersion"
 }
+// Standalone configuration when included from a parent project
+if (!project.plugins.hasPlugin('java-library')) {
+    apply plugin: 'java-library'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+repositories { mavenCentral() }
+if (!project.ext.has('gdxVersion')) {
+    ext.gdxVersion = '1.11.0'
+}
