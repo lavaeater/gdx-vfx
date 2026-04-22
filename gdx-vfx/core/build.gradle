@@ -22,8 +22,8 @@ dependencies {
 // Standalone configuration when included from a parent project
 if (!project.plugins.hasPlugin('java-library')) {
     apply plugin: 'java-library'
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 repositories { mavenCentral() }
 if (!project.ext.has('gdxVersion')) {
